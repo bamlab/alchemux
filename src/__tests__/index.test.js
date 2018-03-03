@@ -1,6 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import alchemux from '..';
+import createStore from '../store';
+
+const store = createStore();
 
 const data = [
   {
@@ -13,9 +17,9 @@ const data = [
 describe('alchemux', () => {
   it('should add the data props', () => {
     const FinalComponent = alchemux()('div');
-    expect(FinalComponent.displayName).toBe('withProps(div)');
+    expect(FinalComponent.displayName).toBe('alchemux(div)');
 
-    const div = shallow(<FinalComponent />).find('div');
+    const div = mount(<FinalComponent alchemuxStore={store} />).find('div');
     expect(div.prop('data')).toEqual(data);
   });
 });
