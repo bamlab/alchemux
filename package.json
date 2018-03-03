@@ -9,6 +9,7 @@
     "test:watch": "cross-env BABEL_ENV=cjs jest --watch",
     "pretest": "yarn run lint",
     "build": "cross-env BABEL_ENV=build babel src -d dist",
+    "build:watch": "cross-env BABEL_ENV=build babel -w src -d dist",
     "lint": "flow src && eslint src"
   },
   "repository": {
