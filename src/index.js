@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { withProps } from 'recompose';
 
-
-export const Provider = ({children}) => children;
-
-
+type Props = {
+  children?: React.Node,
+};
+export const Provider = ({ children }: Props) => children;
 
 const data = [
   {
@@ -14,6 +14,10 @@ const data = [
     content: 'The content',
   },
 ];
-export default () => withProps({
-  data,
-});
+
+const alchemux = () =>
+  withProps({
+    data,
+  });
+
+export default alchemux;

@@ -1,0 +1,15 @@
+{
+  "presets": ["es2015", "react"],
+  "env": {
+    "cjs": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "build": {
+      "ignore": [
+        "src/**/*.test.js"
+      ]
+    }
+  }
+}
