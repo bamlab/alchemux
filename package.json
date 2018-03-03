@@ -1,0 +1,27 @@
+{
+  "name": "alchemux",
+  "version": "0.0.1",
+  "description": "Manage your REST API calls and your entities for react",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bamlab/alchemux.git"
+  },
+  "keywords": [
+    "redux",
+    "entities",
+    "model",
+    "crud",
+    "react",
+    "cache"
+  ],
+  "author": "Nicolas Djambazian <nicolas@djambazian.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bamlab/alchemux/issues"
+  },
+  "homepage": "https://github.com/bamlab/alchemux#readme"
+}
