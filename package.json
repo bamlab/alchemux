@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/bamlab/alchemux/issues"
   },
-  "homepage": "https://github.com/bamlab/alchemux#readme"
+  "homepage": "https://github.com/bamlab/alchemux#readme",
+  "dependencies": {
+    "recompose": "^0.26.0"
+  }
 }
