@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import renderer from 'react-test-renderer';
-import alchemux from '..';
+import { mount } from 'enzyme';
+import { default as alchemux, Alchemux } from '..';
 import createStore from '../store';
 
 const store = createStore();
@@ -21,5 +20,13 @@ describe('alchemux', () => {
 
     const div = mount(<FinalComponent alchemuxStore={store} />).find('div');
     expect(div.prop('data')).toEqual(data);
+  });
+});
+
+describe('Alchemux', () => {
+  it('should add the data props', () => {
+    const render = jest.fn(() => <div />);
+    const div = mount(<Alchemux alchemuxStore={store} render={render} />);
+    expect(render).toHaveBeenCalledWith({ data });
   });
 });
