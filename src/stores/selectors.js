@@ -1,12 +1,12 @@
 // @flow
 import { createSelector } from 'reselect';
 import { entitiesSelector } from './modules/entities';
-import { resultSelector } from './modules/results';
+import { resultsSelector } from './modules/results';
 
 import type { State } from './reducer';
 
 export const resultEntitiesSelector = createSelector(
-  [entitiesSelector, resultSelector],
+  [entitiesSelector, resultsSelector],
   (entities, results) => {
     if (!entities || !results) {
       return [];

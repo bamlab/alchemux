@@ -34,6 +34,10 @@ Object {
       "id": "uid1",
       "text": "barfoo",
     },
+    "uid2": Object {
+      "id": "uid2",
+      "text": "foorbar",
+    },
   },
   "user": Object {
     "3": Object {

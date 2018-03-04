@@ -47,5 +47,5 @@ export default createReducer(initialState, {
 });
 
 // SELECTORS
-export const resultSelector = (state: GlobalState, name: string, type: string): ?Results =>
+export const resultsSelector = (state: GlobalState, name: string, type: string): ?Results =>
   state[STORE_KEY][generateKey(name, type)];

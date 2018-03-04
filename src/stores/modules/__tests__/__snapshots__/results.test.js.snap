@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`entities reducer should have an initial state 1`] = `Object {}`;
+
+exports[`entities reducer should store given ids 1`] = `
+Object {
+  "foo-bar": Array [
+    1,
+    2,
+    3,
+  ],
+}
+`;
+
+exports[`entities reducer should store uniq ids 1`] = `
+Object {
+  "foo-bar": 1,
+}
+`;

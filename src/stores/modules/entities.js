@@ -6,14 +6,7 @@ type Entities = {
   [ID]: Object,
 };
 
-type State = {
-  [string]: Entities,
-};
-
-type StoreKeyType = 'entities';
-export const STORE_KEY: StoreKeyType = 'entities';
-export type GlobalState = { [StoreKeyType]: State };
-
+// ACTION
 type Action = {
   type: string,
   meta?: {
@@ -31,8 +24,18 @@ export const addEntitiesToAction = <A>(action: A, entities: { [string]: Entities
   });
 };
 
+// STATE
+type State = {
+  [string]: Entities,
+};
+
+type StoreKeyType = 'entities';
+export const STORE_KEY: StoreKeyType = 'entities';
+export type GlobalState = { [StoreKeyType]: State };
+
 const initialState = {};
 
+// REDUCER
 export default function reducer(state: State = initialState, action: Action) {
   const entities = path(['meta', 'entities'], action);
   if (!entities) {
@@ -41,5 +44,6 @@ export default function reducer(state: State = initialState, action: Action) {
   return mergeDeepRight(state, entities);
 }
 
+// SELECTOR
 export const entitiesSelector = (state: GlobalState, entityName: string): ?Entities =>
   state[STORE_KEY][entityName];
