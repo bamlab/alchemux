@@ -1,6 +1,7 @@
 // @flow
 import { applyMiddleware, createStore, compose } from 'redux';
 import { connect as reduxConnect } from 'react-redux';
+import logger from 'redux-logger';
 import rootReducer from './stores';
 
 export const STORE_KEY = 'alchemuxStore';

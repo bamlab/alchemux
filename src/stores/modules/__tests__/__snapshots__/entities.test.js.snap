@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`entities reducer should have an initial state 1`] = `Object {}`;
+
+exports[`entities reducer should store given entities 1`] = `
+Object {
+  "comment": Object {
+    "uid1": Object {
+      "id": "uid1",
+      "text": "barfoo",
+    },
+    "uid2": Object {
+      "id": "uid2",
+      "text": "foorbar",
+    },
+  },
+  "user": Object {
+    "3": Object {
+      "id": 3,
+      "name": "foo",
+    },
+    "5": Object {
+      "id": 5,
+      "name": "bar",
+    },
+  },
+}
+`;
+
+exports[`entities reducer should update the new entities 1`] = `
+Object {
+  "comment": Object {
+    "uid1": Object {
+      "id": "uid1",
+      "text": "barfoo",
+    },
+  },
+  "user": Object {
+    "3": Object {
+      "id": 3,
+      "name": "foobar_barfoo",
+    },
+    "5": Object {
+      "id": 5,
+      "name": "bar",
+    },
+  },
+}
+`;
