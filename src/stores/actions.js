@@ -1,9 +1,6 @@
 // @flow
-import { normalize, schema } from 'normalizr';
-import request from '../lib/call';
 import { fetchSuccesResultsAction } from './modules/results';
 import { addEntitiesToAction } from './modules/entities';
-import Client from '../Client';
 
 type ID = number | string;
 type NormalizedResults = {

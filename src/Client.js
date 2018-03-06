@@ -1,6 +1,6 @@
 // @flow
-import request from './lib/call';
 import { normalize, schema } from 'normalizr';
+import request from './lib/call';
 
 import { fetchSuccesAction } from './stores';
 
