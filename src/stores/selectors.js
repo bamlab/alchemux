@@ -15,4 +15,4 @@ export const resultEntitiesSelector = createSelector(
   }
 );
 
-export const dataSelector = (state: State): any => resultEntitiesSelector(state, 'notes', 'list');
+export const dataSelector = (state: State): any => resultEntitiesSelector(state, 'Notes', 'list');

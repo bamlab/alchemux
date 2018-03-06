@@ -1,8 +1,9 @@
 // @flow
 import createReactContext, { type Context } from 'create-react-context';
 
-import { Client } from '../createClient';
-const { Provider, Consumer }: Context<{ client: Client }> = createReactContext({
+import Client from '../Client';
+
+const { Provider, Consumer }: Context<{ client: ?Client }> = createReactContext({
   client: null,
 });
 

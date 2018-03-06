@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import { Provider } from './Context';
-import { default as createClient, Client } from '../createClient';
+import { default as createClient } from '../createClient';
+import Client from '../Client';
 
 type Props = {|
   client?: Client,

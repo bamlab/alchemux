@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { dataSelector, fetchAction } from '../stores';
+import { resultEntitiesSelector } from '../stores';
 
 type Props = {
   render: any => React.Node,
@@ -22,13 +22,15 @@ class Alchemux extends React.PureComponent<Props> {
 }
 
 const mapStateToProps = (state, props) => {
-  return { data: dataSelector(state) };
+  const { entity, queryType } = props;
+  return { data: resultEntitiesSelector(state, entity, queryType) };
 };
 
 const mapDispatchToProps = (dispatch, props) => {
+  const { entity, queryType } = props;
   return bindActionCreators(
     {
-      fetch: fetchAction(props.client),
+      fetch: props.client.getAction(entity, queryType),
     },
     dispatch
   );

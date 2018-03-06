@@ -15,7 +15,7 @@ describe('entities', () => {
       const action = {
         type: 'FETCH_SUCCESS',
         payload: [1, 2, 3],
-        meta: { name: 'foo', type: 'bar' },
+        meta: { entity: 'foo', queryType: 'bar' },
       };
       expect(reducer(undefined, action)).toMatchSnapshot();
     });
@@ -24,7 +24,7 @@ describe('entities', () => {
       const action = {
         type: 'FETCH_SUCCESS',
         payload: 1,
-        meta: { name: 'foo', type: 'bar' },
+        meta: { entity: 'foo', queryType: 'bar' },
       };
       expect(reducer(undefined, action)).toMatchSnapshot();
     });

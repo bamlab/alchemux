@@ -23,7 +23,10 @@ const data = [
 ];
 describe('alchemux', () => {
   it('should add the data props', done => {
-    const FinalComponent = alchemux()('div');
+    const FinalComponent = alchemux({
+      entity: 'note',
+      queryType: 'list',
+    })('div');
     expect(FinalComponent.displayName).toBe('alchemux(div)');
 
     const element = mount(<FinalComponent client={client} />);
@@ -38,7 +41,7 @@ describe('alchemux', () => {
 describe('Alchemux', () => {
   it('should add the data props', () => {
     const render = jest.fn(() => <div />);
-    const div = mount(<Alchemux client={client} render={render} />);
+    const div = mount(<Alchemux client={client} render={render} entity="note" queryType="list" />);
     expect(render).toHaveBeenCalledWith({ data });
   });
 });

@@ -1,29 +1,7 @@
 // @flow
 import { default as createStore } from './store';
-
-type Config = {
-  store: any,
-  apiBaseUrl: string,
-};
-
-export class Client {
-  config: Config;
-  constructor(config: Config) {
-    this.config = config;
-  }
-
-  getStore() {
-    return this.config.store;
-  }
-
-  getApiBaseUrl() {
-    return this.config.apiBaseUrl;
-  }
-
-  generateUrl(entityName: string) {
-    return `${this.getApiBaseUrl()}/${entityName}`;
-  }
-}
+import Client from './Client';
+import type { Config } from './Client';
 
 export default function createClient(config: $Shape<Config>) {
   const store = createStore();
@@ -37,3 +15,5 @@ export default function createClient(config: $Shape<Config>) {
     ...config,
   });
 }
+
+export { Client };

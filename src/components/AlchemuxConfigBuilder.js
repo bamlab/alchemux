@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Consumer } from './Context';
-import { Client } from '../createClient';
+import Client from '../Client';
 
 import Alchemux from './Alchemux';
 

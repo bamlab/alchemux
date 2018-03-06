@@ -9,15 +9,19 @@ type Action = {
   type: 'FETCH_SUCCESS',
   payload: Results,
   meta: {
-    name: string,
-    type: string,
+    entity: string,
+    queryType: string,
   },
 };
 
-export const fetchSuccesResultsAction = (results: Results, name: string, type: string): Action => ({
+export const fetchSuccesResultsAction = (
+  results: Results,
+  entity: string,
+  queryType: string
+): Action => ({
   type: 'FETCH_SUCCESS',
   payload: results,
-  meta: { name, type },
+  meta: { entity, queryType },
 });
 
 // STATE
@@ -29,15 +33,15 @@ type StoreKeyType = 'results';
 export const STORE_KEY: StoreKeyType = 'results';
 export type GlobalState = { [StoreKeyType]: State };
 
-const generateKey = (name: string, type: string): string => `${name}-${type}`;
+const generateKey = (entity: string, queryType: string): string => `${entity}-${queryType}`;
 
 const initialState = {};
 
 // REDUCER
 export default createReducer(initialState, {
   FETCH_SUCCESS: (state: State, action: Action): State => {
-    const { payload, meta: { name, type } } = action;
-    const key = generateKey(name, type);
+    const { payload, meta: { entity, queryType } } = action;
+    const key = generateKey(entity, queryType);
 
     return {
       ...state,
@@ -47,5 +51,5 @@ export default createReducer(initialState, {
 });
 
 // SELECTORS
-export const resultsSelector = (state: GlobalState, name: string, type: string): ?Results =>
-  state[STORE_KEY][generateKey(name, type)];
+export const resultsSelector = (state: GlobalState, entity: string, queryType: string): ?Results =>
+  state[STORE_KEY][generateKey(entity, queryType)];
