@@ -1,9 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { default as alchemux, Alchemux } from '..';
-import createStore from '../store';
+import createClient from '../createClient';
 
-const store = createStore();
+jest.mock('../lib/call.js', () => () =>
+  Promise.resolve([
+    {
+      id: 1,
+      title: 'The title',
+      content: 'The content',
+    },
+  ])
+);
+const client = createClient();
 
 const data = [
   {
@@ -12,21 +21,24 @@ const data = [
     content: 'The content',
   },
 ];
-
 describe('alchemux', () => {
-  it('should add the data props', () => {
+  it('should add the data props', done => {
     const FinalComponent = alchemux()('div');
     expect(FinalComponent.displayName).toBe('alchemux(div)');
 
-    const div = mount(<FinalComponent alchemuxStore={store} />).find('div');
-    expect(div.prop('data')).toEqual(data);
+    const element = mount(<FinalComponent client={client} />);
+    setTimeout(() => {
+      element.update();
+      expect(element.find('div').prop('data')).toEqual(data);
+      done();
+    });
   });
 });
 
 describe('Alchemux', () => {
   it('should add the data props', () => {
     const render = jest.fn(() => <div />);
-    const div = mount(<Alchemux alchemuxStore={store} render={render} />);
+    const div = mount(<Alchemux client={client} render={render} />);
     expect(render).toHaveBeenCalledWith({ data });
   });
 });

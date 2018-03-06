@@ -1,10 +1,16 @@
 // @flow
 import * as React from 'react';
-import { createProvider } from 'react-redux';
-import { default as createStore, STORE_KEY } from '../store';
+import { Provider } from './Context';
+import { default as createClient, Client } from '../createClient';
 
-const store = createStore();
-const ReactReduxProvider = createProvider(STORE_KEY);
-const Provider = (props: Object): React.Node => <ReactReduxProvider store={store} {...props} />;
+type Props = {|
+  client?: Client,
+  children?: React.Node,
+|};
+const AlchemuxProvider = (props: Props): React.Node => {
+  const client = props.client || createClient({});
 
-export default Provider;
+  return <Provider value={{ client }}>{props.children}</Provider>;
+};
+
+export default AlchemuxProvider;

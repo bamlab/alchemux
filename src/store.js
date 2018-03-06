@@ -2,11 +2,12 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import { connect as reduxConnect } from 'react-redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import rootReducer from './stores';
 
 export const STORE_KEY = 'alchemuxStore';
 
-const middlewares = [];
+const middlewares = [thunk, logger];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default function buildStore() {

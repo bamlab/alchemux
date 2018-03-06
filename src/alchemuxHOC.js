@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { setDisplayName, wrapDisplayName, withProps, compose } from 'recompose';
-import Alchemux from './components/Alchemux';
+import Alchemux from './components/AlchemuxConfigBuilder';
 
 const alchemux = <FinalProps>() => (
   Component: React.ComponentType<FinalProps>
